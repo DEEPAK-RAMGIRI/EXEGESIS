@@ -1,24 +1,27 @@
-🔹 Introduction
+BART (Bidirectional and Auto-Regressive Transformers) is a sequence-to-sequence model developed by Facebook AI. It is designed for tasks like text summarization, translation, question answering, and text generation. BART combines the strengths of BERT (bidirectional encoder that understands context) and GPT (autoregressive decoder that generates text). Because of this, it is very effective at abstractive summarization (rephrasing text in new words instead of just extracting sentences).
 
-Text summarization is the process of reducing a long passage of text into a shorter version while retaining the most important information. In this text summarization, we demonstrate two approaches: extractive summarization and abstractive summarization. Extractive summarization works by identifying and selecting the most important sentences from the original text, while abstractive summarization goes further by rewriting the text into a more natural and human-like summary using deep learning models.
+1. Loading the model and tokenizer
 
-🔹 Preprocessing
+We first load the pre-trained model and tokenizer from Hugging Face’s Transformers library. The model (facebook/bart-large-cnn) is already fine-tuned on large summarization datasets like CNN/DailyMail, which makes it good at creating short summaries of news or articles. The tokenizer converts normal text into tokens (smaller units of words) and then into token IDs (numbers the model understands). Without the tokenizer, the model cannot process the text input.
 
-The workflow begins with preprocessing, where the text is cleaned by converting it to lowercase, removing stopwords (common words like the, is, and that do not add much meaning), and stripping punctuation. This step ensures that only meaningful words contribute to the analysis. After preprocessing, we move to feature extraction using the TF-IDF (Term Frequency – Inverse Document Frequency) method.
+2. Preparing the input text
 
-Term Frequency (TF) → measures how often a word appears in a sentence.
+Next, we define the input text (the paragraph we want to summarize). This text is then encoded using the tokenizer. During encoding, the text is split into tokens, and each token is mapped to a number (token ID). We also set parameters such as max_length (maximum tokens allowed for input) and truncation (cutting extra text if it is too long). The result is a tensor (a structured array used by deep learning models) that can be passed into BART.
 
-Inverse Document Frequency (IDF) → reduces the weight of very common words and increases the importance of rare but meaningful words.
-Together, TF-IDF is a way of vectorization (converting sentences into numerical vectors so that algorithms can process them).
+3. Generating the summary
 
-🔹 Feature Extraction and Sentence Scoring
+Now, the encoded input is given to the model’s generate() function, which creates the summary step by step. The generation process can be controlled with parameters:
 
-Once we vectorize the text, each sentence is represented as a vector of word importance scores. To rank sentences, we calculate a sentence score by summing the TF-IDF values of all words in that sentence. Sentences with higher scores are considered more informative. For example, a sentence containing rare but meaningful words like healthcare or experts will score higher than one with common words like AI or world. By ranking sentences in this way, we can automatically identify which ones contribute the most to the overall meaning of the passage. The top-ranked sentences are then selected to form the extractive summary, which is concise but still composed of original text from the document.
+max_length (maximum number of tokens in the output)
 
-🔹 Abstractive Summarization
+min_length (minimum number of tokens in the output)
 
-To improve readability and naturalness, we apply abstractive summarization using a pre-trained deep learning model, facebook/bart-large-cnn, from Hugging Face. This model is built on Transformers (a type of neural network architecture specialized in handling text sequences). The model reads the extractive summary and generates new sentences, rather than just copying. For example, instead of simply selecting sentences about AI’s benefits and growth, the model can generate a smooth summary like: “AI is improving efficiency and saving lives across industries, and experts predict it will expand rapidly in the next decade.”
+num_beams (beam search, meaning the model explores multiple candidate summaries and keeps the best one)
 
-🔹 Conclusion
+length_penalty (penalizes very long or very short summaries to keep them balanced)
 
-Overall, text summarization highlights how combining extractive and abstractive methods provides a powerful summarization pipeline. Extractive techniques ensure that the most important points are captured, while abstractive models refine the output into natural language. By integrating NLTK (Natural Language Toolkit for preprocessing), Scikit-learn (machine learning library for TF-IDF scoring), and Hugging Face Transformers (deep learning models for natural language generation), we achieve an end-to-end text summarization system that is both accurate and human-like.
+early_stopping (stops generation when an optimal summary is found early)
+
+4. Decoding and output
+
+Finally, the model outputs the summary in the form of token IDs (numbers). We use the tokenizer’s decode() function to convert these numbers back into human-readable text. The result is a clean and meaningful summary that captures the essence of the original text. In this way, BART acts like a powerful reader and rewriter—it understands the long text deeply and then rewrites it in a concise, fluent manner.
