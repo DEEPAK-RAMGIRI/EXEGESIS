@@ -16,7 +16,7 @@ def Record_Question():
         except sr.UnknownValueError:
             print("SORRY I could not understand audio")
         except sr.RequestError as e:
-            print("ERROR FROM MY SIDE SORRY🥲; {0}".format(e))
+            print("ERROR FROM MY SIDE SORRY🥲:{0}".format(e))
             
 def ouput_text(text):
     file = open("output.txt","a")
