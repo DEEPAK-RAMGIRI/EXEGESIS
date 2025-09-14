@@ -1,15 +1,19 @@
 from flask import Flask, render_template_string, request
+from summerizer import  summerization_main
+from speechToText import Record_Question
+from qanda import ask_question
+
 
 app = Flask(__name__)
 
 # Dummy QA function (replace with LLM later)
-def answer_question(context, question):
-    if not context.strip() or not question.strip():
-        return "Please provide both a story and a question."
-    # Just a fake logic for now (replace with NLP/LLM)
-    if question.lower() in context.lower():
-        return f"Yes, '{question}' is mentioned in the story."
-    return "Sorry, I couldn't find the answer in the story."
+# def answer_question(context, question):
+#     if not context.strip() or not question.strip():
+#         return "Please provide both a story and a question."
+#     # Just a fake logic for now (replace with NLP/LLM)
+#     if question.lower() in context.lower():
+#         return f"Yes, '{question}' is mentioned in the story."
+#     return "Sorry, I couldn't find the answer in the story."
 
 TEMPLATE = """
 <html>
@@ -100,8 +104,11 @@ def home():
     answer = None
     if request.method == "POST":
         story_text = request.form.get("story_text", "")
+        # story = summerization_main(story_text)
         question_text = request.form.get("question_text", "")
-        answer = answer_question(story_text, question_text)
+        # question = Record_Question()
+        print(question_text)
+        answer = ask_question(story_text, question_text)
     return render_template_string(TEMPLATE, answer=answer)
 
 if __name__ == "__main__":
