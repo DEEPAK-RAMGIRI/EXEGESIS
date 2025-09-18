@@ -38,6 +38,7 @@ This application allows users to input stories, articles, or any custom text, an
 - [pyttsx3](https://pypi.org/project/pyttsx3/) for text-to-speech
 - [Flask](https://flask.palletsprojects.com/) for the web framework
 - [Google Generative AI](https://ai.google.dev/) for the LLM-based Q&A
+- [Text Summarization with BART Model](https://medium.com/@sandyeep70/demystifying-text-summarization-with-deep-learning-ce08d99eda97) For the summerizeing the text
 
 ```
  [helper]/
