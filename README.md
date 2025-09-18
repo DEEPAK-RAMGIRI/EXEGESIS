@@ -1,4 +1,4 @@
-<h1 align="center"> HELPER</h1>
+<h1 align="center"> EXEGESIS </h1>
 
 This application allows users to input stories, articles, or any custom text, and then ask questions about the content. The system uses a text summarizer to extract key points and leverages an LLM-powered Q&A module to provide accurate and contextual answers.
 
