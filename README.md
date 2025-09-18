@@ -6,7 +6,8 @@ This application allows users to input stories, articles, or any custom text, an
 
 ---
 
-<img width="1915" height="1031" alt="image" src="https://github.com/user-attachments/assets/973d8986-2128-40d7-84b2-54f586682a4a" />
+![WhatsApp Image 2025-09-18 at 10 19 55_fd17aa30](https://github.com/user-attachments/assets/9d37a5c7-42fd-4426-9ff0-9d3e9818cae9)
+
 
 ---
 ### Features
