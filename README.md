@@ -21,11 +21,14 @@ This application allows users to input stories, articles, or any custom text, an
  - speech_recognition – For converting speech to text
  - Google Generative AI (Gemini) – For LLM-based question answering
  - dotenv – For securely handling API keys
- - streamlit - for trial run 
+ - streamlit - for trial run
+ - BartTokenizer- For  tokenizing and giving ids
+ - BartForConditionalGeneration- For summarizing the given converted tokens
 
 ### Workflow
  - User speaks a story → Captured via microphone
- -  Text is stored and summarized
+ -  Text is stored 
+ -  That stored text is summerized using the BART Model
  - User asks a question → Passed with summary to LLM
  - LLM generates contextual answers
  - ur answer
