@@ -41,7 +41,7 @@ This application allows users to input stories, articles, or any custom text, an
 - [Text Summarization with BART Model](https://medium.com/@sandyeep70/demystifying-text-summarization-with-deep-learning-ce08d99eda97) For the summerizeing the text
 
 ```
- [helper]/
+ EXEGESIS/
   │── .gitignore                # Git ignore file
   ├── frontend.py               # Flask frontend integration
   ├── main.py                   # Trial to run the program using streamlit
