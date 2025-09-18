@@ -1,4 +1,4 @@
-<h1 align="center"> HELPER</h1>
+<h1 align="center"> EXEGESIS</h1>
 
 This application allows users to input stories, articles, or any custom text, and then ask questions about the content. The system uses a text summarizer to extract key points and leverages an LLM-powered Q&A module to provide accurate and contextual answers.
 
@@ -21,11 +21,14 @@ This application allows users to input stories, articles, or any custom text, an
  - speech_recognition – For converting speech to text
  - Google Generative AI (Gemini) – For LLM-based question answering
  - dotenv – For securely handling API keys
- - streamlit - for trial run 
+ - streamlit - for trial run
+ - BartTokenizer- For  tokenizing and giving ids
+ - BartForConditionalGeneration- For summarizing the given converted tokens
 
 ### Workflow
  - User speaks a story → Captured via microphone
- -  Text is stored and summarized
+ -  Text is stored 
+ -  That stored text is summerized using the BART Model
  - User asks a question → Passed with summary to LLM
  - LLM generates contextual answers
  - ur answer
