@@ -26,7 +26,7 @@ TEMPLATE = """
 <head>
   <title>EXEGESIS</title>
   <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+   <link rel="icon" href="https://raw.githubusercontent.com/DEEPAK-RAMGIRI/helper/refs/heads/main/favicon.ico" type="image/x-icon" />
 </head>
 <body class="bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 min-h-screen flex items-center justify-center">
   <div class="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-8">
