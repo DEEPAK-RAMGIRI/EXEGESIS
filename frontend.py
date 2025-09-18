@@ -6,6 +6,12 @@ from qanda import ask_question
 
 app = Flask(__name__)
 
+@app.route("/record", methods=["POST"])
+def record():
+    question_text = request.form.get("question_text", "")
+    question = Record_Question()  
+    return {"question": question}
+
 # Dummy QA function (replace with LLM later)
 # def answer_question(context, question):
 #     if not context.strip() or not question.strip():
@@ -18,13 +24,14 @@ app = Flask(__name__)
 TEMPLATE = """
 <html>
 <head>
-  <title>Story Q&A App 🎙️</title>
+  <title>EXEGESIS</title>
   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body class="bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 min-h-screen flex items-center justify-center">
   <div class="w-full max-w-5xl bg-white rounded-2xl shadow-2xl p-8">
     <h1 class="text-4xl font-extrabold text-center bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-8">
-      Story Q&A Summarizer 🎤✍️
+      EXEGESIS
     </h1>
 
     <form method="POST" id="qaForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -76,25 +83,19 @@ TEMPLATE = """
   </div>
 
   <!-- Speech-to-Text Script -->
-  <script>
-    function startRecording() {
-      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-      recognition.lang = "en-US";
-      recognition.interimResults = false;
-      recognition.maxAlternatives = 1;
+ <script>
+  async function startRecording() {
+    try {
+      const response = await fetch("/record", { method: "POST" });
+      const data = await response.json();
+      document.getElementById("question_text").value = data.question;
+    } catch (err) {
+      alert("Error: " + err);
+    }    
+  }
+  
+</script>
 
-      recognition.start();
-
-      recognition.onresult = function(event) {
-        const spokenText = event.results[0][0].transcript;
-        document.getElementById("question_text").value = spokenText;
-      };
-
-      recognition.onerror = function(event) {
-        alert("Error: " + event.error);
-      };
-    }
-  </script>
 </body>
 </html>
 """
