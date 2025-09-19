@@ -3,3 +3,5 @@ PyAudio
 google-generativeai
 python-dotenv
 flask
+transformers
+torch --index-url https://download.pytorch.org/whl/cpu

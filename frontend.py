@@ -8,9 +8,11 @@ app = Flask(__name__)
 
 @app.route("/record", methods=["POST"])
 def record():
-    question_text = request.form.get("question_text", "")
-    question = Record_Question()  
-    return {"question": question}
+    try:
+        question = Record_Question()
+        return {"question": question}
+    except Exception as e:
+        return {"question": f"Error: {e}"}
 
 # Dummy QA function (replace with LLM later)
 # def answer_question(context, question):
@@ -86,7 +88,8 @@ TEMPLATE = """
  <script>
   async function startRecording() {
     try {
-      const response = await fetch("/record", { method: "POST" });
+      const response = await fetch("/record", { method: "POST" ,headers: { "Content-Type": "application/json" }, 
+      body: JSON.stringify({})});
       const data = await response.json();
       document.getElementById("question_text").value = data.question;
     } catch (err) {
