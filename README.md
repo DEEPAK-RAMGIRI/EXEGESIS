@@ -35,9 +35,12 @@ This application allows users to input stories, articles, or any custom text, an
  - ur answer
 
 ### Docker Usage
-docker build -t deepakramgiri/exegesis .
-docker run -p 8000:5000 -e GOOGLE_API_KEY="YOUR_API_KEY" -e USE_MIC=0 deepakramgiri/exegesis
-
+```
+docker build -t deepakramgiri/exegesis
+```
+```
+docker run -p 8000:5000 -e GOOGLE_API_KEY="YOUR_API_KEY" -e USE_MIC=0 deepakramgiri/exegesis.
+```
 Access the app at: http://localhost:8000
 
 ### Acknowledgments
