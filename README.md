@@ -38,6 +38,7 @@ This application allows users to input stories, articles, or any custom text, an
 ```
 docker build -t deepakramgiri/exegesis
 ```
+get ur [API HERE:](https://aistudio.google.com/apikey?_gl=1*9jchcg*_ga*OTMyMDY4NzA0LjE3NTczMjM2ODA.*_ga_P1DBVKWT6V*czE3NTgyNTgwMTYkbzIkZzAkdDE3NTgyNTgwMTYkajYwJGwwJGgxMjkxNTI0ODg5)
 ```
 docker run -p 8000:5000 -e GOOGLE_API_KEY="YOUR_API_KEY" -e USE_MIC=0 deepakramgiri/exegesis.
 ```
@@ -49,8 +50,9 @@ Access the app at: http://localhost:8000
 - [Flask](https://flask.palletsprojects.com/) for the web framework
 - [Google Generative AI](https://ai.google.dev/) for the LLM-based Q&A
 - [Text Summarization with BART Model](https://medium.com/@sandyeep70/demystifying-text-summarization-with-deep-learning-ce08d99eda97) For the summerizeing the text
-
 ```
+
+
  EXEGESIS/
   │──.dockerignore 
   │── .gitignore                # Git ignore file
