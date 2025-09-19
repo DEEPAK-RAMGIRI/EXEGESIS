@@ -8,7 +8,6 @@ This application allows users to input stories, articles, or any custom text, an
 
 ![WhatsApp Image 2025-09-18 at 10 19 55_fd17aa30](https://github.com/user-attachments/assets/9d37a5c7-42fd-4426-9ff0-9d3e9818cae9)
 
-
 ---
 ### Features
 -  Input any text (stories, paragraphs, articles, etc.)
