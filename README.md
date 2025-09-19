@@ -12,6 +12,8 @@ This application allows users to input stories, articles, or any custom text, an
 ---
 ### Features
 -  Input any text (stories, paragraphs, articles, etc.)
+-  speech_recognition – Convert speech to text
+-  Google Generative AI (Gemini) – LLM-based question answering
 -  Summarizes the input text for better context understanding
 -  Ask questions related to the provided text
 -  our application generates answers based on summarized content
@@ -26,12 +28,18 @@ This application allows users to input stories, articles, or any custom text, an
  - BartForConditionalGeneration- For summarizing the given converted tokens
 
 ### Workflow
- - User speaks a story → Captured via microphone
+ - User gives a story or article 
  -  Text is stored 
  -  That stored text is summerized using the BART Model
- - User asks a question → Passed with summary to LLM
- - LLM generates contextual answers
+ - User asks a question → Passed with summary to LLM (or) Type the question
+ - LLM generates contextual answers from the summerized text
  - ur answer
+
+### Docker Usage
+docker build -t deepakramgiri/exegesis .
+docker run -p 8000:5000 -e GOOGLE_API_KEY="YOUR_API_KEY" -e USE_MIC=0 deepakramgiri/exegesis
+
+Access the app at: http://localhost:8000
 
 ### Acknowledgments
 - [speech_recognition](https://pypi.org/project/SpeechRecognition/) for speech-to-text
@@ -42,7 +50,10 @@ This application allows users to input stories, articles, or any custom text, an
 
 ```
  EXEGESIS/
+  │──.dockerignore 
   │── .gitignore                # Git ignore file
+  │── Dockerfile
+  │── favicon.ico
   ├── frontend.py               # Flask frontend integration
   ├── main.py                   # Trial to run the program using streamlit
   ├── output.txt                # Stores user queries and responses (optional)
