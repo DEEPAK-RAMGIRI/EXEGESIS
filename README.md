@@ -40,7 +40,7 @@ docker pull deepakramgiri/exegesis:latest
 ```
 get ur [API HERE:](https://aistudio.google.com/apikey?_gl=1*9jchcg*_ga*OTMyMDY4NzA0LjE3NTczMjM2ODA.*_ga_P1DBVKWT6V*czE3NTgyNTgwMTYkbzIkZzAkdDE3NTgyNTgwMTYkajYwJGwwJGgxMjkxNTI0ODg5)
 ```
-docker run -p 8000:5000 -e GOOGLE_API_KEY="YOUR_API_KEY" deepakramgiri/exegesis.
+docker run -p 8000:5000 -e GOOGLE_API_KEY="YOUR_API_KEY" deepakramgiri/exegesis
 ```
 Access the app at: http://localhost:8000
 
