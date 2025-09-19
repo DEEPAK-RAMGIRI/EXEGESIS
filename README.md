@@ -36,7 +36,7 @@ This application allows users to input stories, articles, or any custom text, an
 
 ### Docker Usage
 ```
-docker build -t deepakramgiri/exegesis
+docker pull deepakramgiri/exegesis
 ```
 get ur [API HERE:](https://aistudio.google.com/apikey?_gl=1*9jchcg*_ga*OTMyMDY4NzA0LjE3NTczMjM2ODA.*_ga_P1DBVKWT6V*czE3NTgyNTgwMTYkbzIkZzAkdDE3NTgyNTgwMTYkajYwJGwwJGgxMjkxNTI0ODg5)
 ```
