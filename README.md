@@ -49,10 +49,10 @@ Access the app at: http://localhost:8000
 - [pyttsx3](https://pypi.org/project/pyttsx3/) for text-to-speech
 - [Flask](https://flask.palletsprojects.com/) for the web framework
 - [Google Generative AI](https://ai.google.dev/) for the LLM-based Q&A
-- [Text Summarization with BART Model](https://medium.com/@sandyeep70/demystifying-text-summarization-with-deep-learning-ce08d99eda97) For the summerizeing the text
+- [Text Summarization with BART Model](https://medium.com/@sandyeep70/demystifying-text-summarization-with-deep-learning-ce08d99eda97) For the summerizeing the text.
+
+
 ```
-
-
  EXEGESIS/
   │──.dockerignore 
   │── .gitignore                # Git ignore file
