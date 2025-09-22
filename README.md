@@ -23,8 +23,9 @@ This application allows users to input stories, articles, or any custom text, an
  - Google Generative AI (Gemini) – For LLM-based question answering
  - dotenv – For securely handling API keys
  - streamlit - for trial run
- - BartTokenizer- For  tokenizing and giving ids
- - BartForConditionalGeneration- For summarizing the given converted tokens
+ - transformers (Hugging Face)
+      - BartTokenizer – For tokenizing text and converting into IDs
+      - BartForConditionalGeneration – For summarizing the given converted tokens
 
 ### Workflow
  - User gives a story or article 
